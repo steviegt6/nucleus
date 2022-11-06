@@ -57,7 +57,7 @@ jobs:
       run: |
         cp artifact/app.asar .
 
-    - name: Download Client with OpenAsar
+    - name: Download Client with nucleus
       run: |
         wget "https://discord.com/api/download/canary?platform=linux&format=tar.gz" -O discord.tar.gz
         tar xf discord.tar.gz
@@ -101,7 +101,7 @@ jobs:
         node scripts/downloadWin.js
         tar xf client.tar
 
-        # Install OpenAsar build and setup environment
+        # Install nucleus build and setup environment
         sed -r -i "s/const config=require\('.\/config'\);/console.log\('ABRA'\);app.quit\(\);  /" app.asar
         sed -r -i "s/if\(next!=cur&&!options\?\.allowObsoleteHost\)/if\(false\)                                 /" app.asar
         cp -f app.asar files/resources/app.asar
