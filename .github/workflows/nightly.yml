@@ -28,13 +28,21 @@ jobs:
         bash scripts/injectPolyfills.sh
         sed -i -e "s/nightly/nightly-$(git rev-parse HEAD | cut -c 1-7)/" src/index.js
         node scripts/strip.js
-        npx asar pack src app.asar
+        npx asar pack src app.asar --unpack vibe.node
+        npx asar pack src app-acrylic.asar
 
-    - name: Upload artifact
+    - name: Upload app artifact
       uses: actions/upload-artifact@v2
       with:
         name: built-asar
         path: app.asar
+        retention-days: 1
+
+    - name: Upload app-acrylic artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: built-asar-acrylic
+        path: app-acrylic.asar
         retention-days: 1
 
 

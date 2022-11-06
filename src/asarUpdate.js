@@ -5,7 +5,7 @@ const { join } = require('path');
 const asarPath = join(require.main.filename, '..');
 const downloadPath = join(asarPath, '..', 'app.asar.download');
 
-const asarUrl = `<githubUrl>/releases/download/${oaVersion.split('-')[0]}/app.asar`;
+const asarUrl = `https://github.com/steviegt6/nucleus/releases/download/${oaVersion.split('-')[0]}/${oaConfig.supportsAcrylic ? 'app-acrylic.asar' : 'app.asar'}.asar`;
 
 module.exports = async () => { // (Try) update asar
   log('AsarUpdate', 'Updating...');
