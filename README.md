@@ -51,6 +51,8 @@ cp app.asar "path/to/your/app.asar"
 # discord-canary "$@"
 ```
 
+`nucleus`, like OpenAsar, also depends on a CDN to retrieve files from (namely, the config). Our fork is hosted at [Steviegt6/nucleus-cdn](https://github.com/Steviegt6/nucleus-cdn) ((cdn.nucleus.tomat.dev)[https://cdn.nucleus.tomat.dev]). Depending on what you are developing or testing, you may need to host your own CDN locally and change `./src/appConfig.js` appropriately.
+
 ## Configuration
 
 You may configure `nucleus` by clicking the text that displays "`nucleus`" followed by a six-letter commit SHA in the bottom of your settings sidebar, which will open the config window.
