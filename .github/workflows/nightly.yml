@@ -174,7 +174,7 @@ jobs:
       env:
         GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
         VERSION: 'nightly'
-        FILES: app.asar
+        FILES: app.asar app-acrylic.asar
 
   # debug-linux:
   #   name: Debug Linux
