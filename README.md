@@ -1,6 +1,6 @@
 _Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 
-# `nucleus` ![Nightly Status](https://github.com/Steviegt6/nucleus/actions/workflows/nightly.yml/badge.svg) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
+# `nucleus` ![Nightly Status](https://github.com/s/nucleus/actions/workflows/nightly.yml/badge.svg) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
 
 <!-- ### Acrylic fork (Windows only) - uses [`@pyke/vibe`](https://github.com/pykeio/vibe) under [Apache 2.0](https://github.com/pykeio/vibe/blob/main/LICENSE) -->
 
@@ -26,7 +26,7 @@ _Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 
 ### Users
 
-Users should download the latest release binary. See how by following the [installation guide](https://github.com/Steviegt6/nucleus/wiki/Install-Guide).
+Users should download the latest release binary. See how by following the [installation guide](https://github.com/steviegt6/nucleus/wiki/Install-Guide).
 
 ### Developers
 
@@ -53,7 +53,7 @@ cp app.asar "path/to/your/app.asar"
 # discord-canary "$@"
 ```
 
-`nucleus`, like OpenAsar, also depends on a CDN to retrieve files from (namely, the config). Our fork is hosted at [Steviegt6/nucleus-cdn](https://github.com/Steviegt6/nucleus-cdn) ((cdn.nucleus.tomat.dev)[https://cdn.nucleus.tomat.dev]). Depending on what you are developing or testing, you may need to host your own CDN locally and change `./src/appConfig.js` appropriately.
+`nucleus`, like OpenAsar, also depends on a CDN to retrieve files from (namely, the config). Our fork is hosted at [steviegt6/nucleus-cdn](https://github.com/steviegt6/nucleus-cdn) ((cdn.nucleus.tomat.dev)[https://cdn.nucleus.tomat.dev]). Depending on what you are developing or testing, you may need to host your own CDN locally and change `./src/utils/win.js` appropriately.
 
 ## Configuration
 

@@ -1,10 +1,10 @@
 const { join } = require('path');
 
-global.log = (area, ...args) => console.log(`[\x1b[38;2;88;101;242m<appName>\x1b[0m > ${area}]`, ...args); // Make log global for easy usage everywhere
+global.log = (area, ...args) => console.log(`[\x1b[38;2;88;101;242mnucleus\x1b[0m > ${area}]`, ...args); // Make log global for easy usage everywhere
 
 global.oaVersion = 'nightly';
 
-log('Init', '<appName>', oaVersion);
+log('Init', 'nucleus', oaVersion);
 
 if (process.resourcesPath.startsWith('/usr/lib/electron')) global.systemElectron = true; // Using system electron, flag for other places
 process.resourcesPath = join(__dirname, '..'); // Force resourcesPath for system electron
@@ -15,13 +15,18 @@ paths.init();
 global.settings = require('./appSettings').getSettings();
 global.oaConfig = settings.get('openasar', {});
 
-// vibe only suppotrs michaelsoft binbows
-if (process.platform !== "win32" || (!process.argv?.includes?.('--acrylic-window') && global.oaConfig.acrylicWindow !== true)) {
+try { 
+  global.vibe = require('./vibe.node'); 
+  global.oaConfig.supportsAcrylic = true;
+} catch (e) { 
   global.vibe = [];
+  global.oaConfig.supportsAcrylic = false;
+}
+
+if (global.oaConfig.supportsAcrylic !== true || process.platform !== "win32" || (global.oaConfig.acrylicWindow !== true && !process.argv?.includes?.('--acrylic-window'))) {
   global.vibe.enabled = false;
 }
 else {
-  global.vibe = require('./vibe.node');
   global.vibe.enabled = true;
   vibe.setup(require('electron').app);
 }

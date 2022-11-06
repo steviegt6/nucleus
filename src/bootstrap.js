@@ -3,8 +3,6 @@ const { readFileSync } = require('fs');
 const get = require('request');
 const { join } = require('path');
 
-const appConfig = require('./appConfig');
-
 if (!settings.get('enableHardwareAcceleration', true)) app.disableHardwareAcceleration();
 process.env.PULSE_LATENCY_MSEC = process.env.PULSE_LATENCY_MSEC ?? 30;
 
@@ -44,8 +42,6 @@ const startCore = () => {
       bw.webContents.executeJavaScript(readFileSync(join(__dirname, 'mainWindow.js'), 'utf8')
         .replaceAll('<hash>', hash || 'custom')
         .replaceAll('<notrack>', oaConfig.noTrack)
-        .replaceAll('<appName>', appConfig.appName)
-        .replaceAll('<githubUrl>', appConfig.githubUrl)
         .replace('<css>', (oaConfig.css ?? '').replaceAll('\\', '\\\\').replaceAll('`', '\\`')));
 
       if (oaConfig.js) bw.webContents.executeJavaScript(oaConfig.js);

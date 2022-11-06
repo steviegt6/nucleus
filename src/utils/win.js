@@ -24,7 +24,6 @@ module.exports = (o, n) => {
     } catch { }
   });
 
-  // TODO: some way to configure this like in appConfig.js
   w.loadURL('https://cdn.nucleus.tomat.dev/' + n + '?v=' + oaVersion);
 
   if (vibe?.enabled === true) {
