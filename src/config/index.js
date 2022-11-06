@@ -16,9 +16,10 @@ exports.open = () => {
   settings.save();
 
   ipcMain.on('NUCLEUS_EDIT', () => {
-    settings.set('openasar', config);
+    /*settings.set('openasar', config);
     settings.save();
-    shell.openPath(require('../paths').getUserData() + '/settings.json');
+    shell.openPath(require('../paths').getUserData() + '/settings.json');*/
+    // LEGACY: edit button now directly calls Native.open()
   });
 
   ipcMain.on('cs', (e, c) => {
