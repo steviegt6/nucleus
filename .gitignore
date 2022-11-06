@@ -5,3 +5,6 @@ _*
 miniSrc/
 
 *.crswap # crostini tmp files
+
+# personal files
+run.sh
