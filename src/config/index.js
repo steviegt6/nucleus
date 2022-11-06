@@ -4,6 +4,10 @@ ipcMain.on('DISCORD_UPDATED_QUOTES', (e, c) => {
   if (c === 'o') exports.open();
 });
 
+ipcMain.on('of', () => {
+  shell.openPath(require('../paths').getUserData() + '/settings.json');
+})
+
 exports.open = () => {
   const win = require('../utils/win')({
     width: 600,
@@ -16,10 +20,10 @@ exports.open = () => {
   settings.save();
 
   ipcMain.on('NUCLEUS_EDIT', () => {
+    // LEGACY
     /*settings.set('openasar', config);
     settings.save();
     shell.openPath(require('../paths').getUserData() + '/settings.json');*/
-    // LEGACY: edit button now directly calls Native.open()
   });
 
   ipcMain.on('cs', (e, c) => {
@@ -37,8 +41,4 @@ exports.open = () => {
     app.relaunch();
     app.exit();
   });
-
-  ipcMain.on('of', () => {
-    shell.openPath(require('../paths').getUserData() + '/settings.json')
-  })
 };
