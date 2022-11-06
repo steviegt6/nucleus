@@ -1,4 +1,4 @@
-*Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar).*
+_Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 
 # nucleus ![Nightly Status](https://github.com/Steviegt6/nucleus/actions/workflows/nightly.yml/badge.svg) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
 
@@ -16,7 +16,7 @@ nucleus' changes include many features, such as:
 - **:feather: lightweight file size**—<1% of Discord's original size (9mb -> ~50kb);
 - and **:shield: reduced tracking**—removes Discord's built-in tracking for crashes and errors in the bootstrapper (not app itself).
 
-**Set the [FAQ](faq.md) for more details!**
+**Set the [FAQ](FAQ.md) for more details!**
 
 ## Obtaining a Copy
 
