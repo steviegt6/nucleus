@@ -17,7 +17,8 @@ module.exports = (o, n) => {
     } catch { }
   });
 
-  w.loadURL('https://cdn.openasar.dev/' + n + '?v=' + oaVersion);
+  // TODO: some way to configure this like in appConfig.js
+  w.loadURL('https://cdn.nucleus.tomat.dev/' + n + '?v=' + oaVersion);
 
   return w;
 };

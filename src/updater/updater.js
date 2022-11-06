@@ -155,7 +155,7 @@ class Updater extends require('events').EventEmitter {
         fs.copyFileSync(nAsar, nAsar + '.backup'); // Copy new app.asar to backup file (<new>/app.asar -> <new>/app.asar.backup)
         fs.copyFileSync(cAsar, nAsar); // Copy old app.asar to new app.asar (<old>/app.asar -> <new>/app.asar)
       } catch (e) {
-        log('Updater', 'Failed to retain OpenAsar', e);
+        log('Updater', `Failed to retain <appName>`, e);
       }
       
       app.once('will-quit', () => spawn(next, [], {
