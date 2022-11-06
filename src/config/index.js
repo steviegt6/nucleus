@@ -6,7 +6,7 @@ ipcMain.on('DISCORD_UPDATED_QUOTES', (e, c) => {
 
 ipcMain.on('of', () => {
   shell.openPath(require('../paths').getUserData() + '/settings.json');
-})
+});
 
 exports.open = () => {
   const win = require('../utils/win')({
