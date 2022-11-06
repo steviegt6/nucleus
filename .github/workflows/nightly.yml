@@ -149,9 +149,19 @@ jobs:
         name: built-asar
         path: artifact
 
+    - name: Retrieve acrylic artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: built-asar-acrylic
+        path: artifact
+
     - name: Extract artifact
       run: |
         cp artifact/app.asar .
+
+    - name: Extract acrylic artifact
+      run: |
+        cp artifact/app-acrylic.asar .
 
     - name: GitHub Release
       run: |
