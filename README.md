@@ -16,7 +16,7 @@ _Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 - **:electric_plug: drop-in installation**: all you need to do is change a file (uninstalling is the same);
 - **:gear: configurable features**: options to enhance both Discord and `nucleus` (see: [Configuration](#configuration));
 - **:feather: lightweight file size**: about <2% of Discord's original size (9mb -> ~50kb);
-   **:shield: reduced tracking**: removes Discord's built-in tracking for crashes and errors in the bootstrapper (not app itself).
+- **:shield: reduced tracking**: removes Discord's built-in tracking for crashes and errors in the bootstrapper (not app itself).
 
 **Set the [FAQ](FAQ.md) for more details!**
 
