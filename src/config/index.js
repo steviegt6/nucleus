@@ -6,7 +6,7 @@ ipcMain.on('DISCORD_UPDATED_QUOTES', (e, c) => {
 
 exports.open = () => {
   const win = require('../utils/win')({
-    width: 500,
+    width: 600,
     height: 650
   }, 'config');
 
@@ -14,6 +14,12 @@ exports.open = () => {
   config.setup = true;
   settings.set('openasar', config);
   settings.save();
+
+  ipcMain.on('NUCLEUS_EDIT', () => {
+    settings.set('openasar', config);
+    settings.save();
+    shell.openPath(require('../paths').getUserData() + '/settings.json');
+  });
 
   ipcMain.on('cs', (e, c) => {
     config = c;
