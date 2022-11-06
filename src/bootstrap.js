@@ -22,7 +22,6 @@ app.name = 'discord'; // Force name as sometimes breaks
 const fatal = e => log('Fatal', e);
 process.on('uncaughtException', console.error);
 
-
 const splash = require('./splash');
 const updater = require('./updater/updater');
 const moduleUpdater = require('./updater/moduleUpdater');
@@ -50,6 +49,11 @@ const startCore = () => {
         .replace('<css>', (oaConfig.css ?? '').replaceAll('\\', '\\\\').replaceAll('`', '\\`')));
 
       if (oaConfig.js) bw.webContents.executeJavaScript(oaConfig.js);
+
+      if (vibe?.enabled === true) {
+        bw.setBackgroundColor('#00000000');
+        vibe.applyEffect(bw, 'acrylic');
+      }
     });
   });
 
@@ -138,5 +142,5 @@ module.exports = () => {
   if (!app.requestSingleInstanceLock() && !(process.argv?.includes?.('--multi-instance') || oaConfig.multiInstance === true)) return app.quit();
 
   if (app.isReady()) startUpdate();
-    else app.once('ready', startUpdate);
+  else app.once('ready', startUpdate);
 };

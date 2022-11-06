@@ -11,7 +11,7 @@ ipcMain.on('of', () => {
 exports.open = () => {
   const win = require('../utils/win')({
     width: 600,
-    height: 650
+    height: 700
   }, 'config');
 
   let config = settings.get('openasar', {});

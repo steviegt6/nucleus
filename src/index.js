@@ -15,8 +15,18 @@ paths.init();
 global.settings = require('./appSettings').getSettings();
 global.oaConfig = settings.get('openasar', {});
 
-require('./cmdSwitches')();
+// vibe only suppotrs michaelsoft binbows
+if (process.platform !== "win32" || (!process.argv?.includes?.('--acrylic-window') && global.oaConfig.acrylicWindow === false)) {
+  global.vibe = [];
+  global.vibe.enabled = false;
+}
+else {
+  global.vibe = require('./vibe.node');
+  global.vibe.enabled = true;
+  vibe.setup(require('electron').app);
+}
 
+require('./cmdSwitches')();
 
 // Force u2QuickLoad (pre-"minified" ish)
 const M = require('module'); // Module
