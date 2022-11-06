@@ -10,13 +10,13 @@ _Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 
 `nucleus`' changes include many features, such as:
 
-- **:rocket: Faster start-up speeds**—~2x faster startup times (up to ~4x with experimental config);
-- **:chart_with_upwards_trend: increased performance**—increased speeds can make your client feel snappier (scrolling, switching channels, etc);
-- **:paintbrush: start-up splash themeing**—easy theming for your start-up splash which works with most themes for any client mod;
-- **:electric_plug: drop-in installation**—replace one file and it's installed, that's it (uninstallation follows the some process);
-- **:gear: configurable features**—adds many config options to enhance Discord and `nucleus` (see the [Configuration](#configuration) section);
-- **:feather: lightweight file size**—<1% of Discord's original size (9mb -> ~50kb);
-- and **:shield: reduced tracking**—removes Discord's built-in tracking for crashes and errors in the bootstrapper (not app itself).
+- **:rocket: faster start-up speeds**: upwards of 2x-4x increases observed;
+- **:chart_with_upwards_trend: increased performance**: increased speeds result in a snappier client;
+- **:paintbrush: start-up splash theming**: easy theming for your start-up splash compatible with client mods;
+- **:electric_plug: drop-in installation**: all you need to do is change a file (uninstalling is the same);
+- **:gear: configurable features**: options to enhance both Discord and `nucleus` (see: [Configuration](#configuration));
+- **:feather: lightweight file size**: about <2% of Discord's original size (9mb -> ~50kb);
+   **:shield: reduced tracking**: removes Discord's built-in tracking for crashes and errors in the bootstrapper (not app itself).
 
 **Set the [FAQ](FAQ.md) for more details!**
 
