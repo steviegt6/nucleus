@@ -16,7 +16,7 @@ global.settings = require('./appSettings').getSettings();
 global.oaConfig = settings.get('openasar', {});
 
 // vibe only suppotrs michaelsoft binbows
-if (process.platform !== "win32" || (!process.argv?.includes?.('--acrylic-window') && global.oaConfig.acrylicWindow === false)) {
+if (process.platform !== "win32" || (!process.argv?.includes?.('--acrylic-window') && global.oaConfig.acrylicWindow !== true)) {
   global.vibe = [];
   global.vibe.enabled = false;
 }
