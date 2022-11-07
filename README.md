@@ -1,6 +1,6 @@
 _Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 
-# `nucleus` ![Nightly Status](https://github.com/s/nucleus/actions/workflows/nightly.yml/badge.svg) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
+# `nucleus` ![Nightly Status](https://github.com/steviegt6/nucleus/actions/workflows/nightly.yml/badge.svg) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
 
 <!-- ### Acrylic fork (Windows only) - uses [`@pyke/vibe`](https://github.com/pykeio/vibe) under [Apache 2.0](https://github.com/pykeio/vibe/blob/main/LICENSE) -->
 
