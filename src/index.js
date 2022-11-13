@@ -15,6 +15,9 @@ paths.init();
 global.settings = require('./appSettings').getSettings();
 global.oaConfig = settings.get('openasar', {});
 
+// Inject mods right after resolving settings.
+require('./mods/modInjector')();
+
 try { 
   global.vibe = require('./vibe.node'); 
   global.oaConfig.supportsAcrylic = true;
