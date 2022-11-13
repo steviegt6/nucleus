@@ -1,3 +1,7 @@
+import {} from "../../@types/global";
+import { SettingsStore } from "../../appSettings";
+import { Addon } from "../addonHandler";
+
 const SHELTER_PRELOAD_SCRIPT = `
 const { ipcRenderer, webFrame } = require("electron");
 
@@ -9,18 +13,32 @@ const originalPreload = ipcRenderer.sendSync("SHELTER_ORIGINAL_PRELOAD");
 if (originalPreload) require(originalPreload);
 `;
 
-module.exports = () => {
-    const electron = require("electron");
-    const path = require("path");
-    const fs = require("fs");
-    const https = require("https");
+function shelterLog(...args: any[]) {
+    log("ShelterAddon", ...args);
+    console.log("[shelter]", ...args);
+}
 
-    function logShelter(...args) {
-        global.log("ShelterInjector", ...args);
-        console.log("[shelter]", ...args);
+export class ShelterAddon implements Addon {
+    name: string = "shelter";
+
+    load(oaConfig: SettingsStore): void {
+        if (!oaConfig.injectShelter) {
+            log("ShelterAddon", "shelter is not enabled, skipping injection...");
+            return;
+        }
+
+        log("ShelterAddon", "shelter is enabled, injecting...");
+        injectShelter();
     }
+}
 
-    logShelter("Loading...");
+import electron from "electron";
+import path from "path";
+import fs from "fs";
+import https from "https";
+
+function injectShelter() {
+    shelterLog("Loading...");
 
     // #region Bundle
 
@@ -36,12 +54,11 @@ module.exports = () => {
         const req = https.get(remoteUrl);
 
         req.on("response", (res) => {
-            const chunks = [];
+            const chunks: any[] = [];
 
             res.on("data", (chunk) => chunks.push(chunk));
             res.on("end", () => {
                 shelterBundle = Buffer.concat(chunks).toString("utf-8");
-
                 if (!shelterBundle.includes("//# sourceMappingURL=")) shelterBundle += `\n//# sourceMappingURL=${remoteUrl + ".map"}`;
             });
         });
@@ -54,11 +71,13 @@ module.exports = () => {
     // #region IPC
 
     electron.ipcMain.on("SHELTER_ORIGINAL_PRELOAD", (event) => {
+        // TODO: remove @ts-ignore
+        // @ts-ignore
         event.returnValue = event.sender.originalPreload;
     });
 
     electron.ipcMain.handle("SHELTER_BUNDLE_FETCH", async () => {
-        if (!shelterBundle) await Promise((r) => setImmediate(r));
+        if (!shelterBundle) await new Promise((r) => setImmediate(r));
         return shelterBundle;
     });
 
@@ -69,6 +88,7 @@ module.exports = () => {
     // TODO: nucleus: generalize this elsewhere
     electron.app.on("ready", () => {
         electron.session.defaultSession.webRequest.onHeadersReceived(({ responseHeaders }, done) => {
+            if (responseHeaders === undefined) return;
             const cspHeaders = Object.keys(responseHeaders).filter((name) => name.toLowerCase().startsWith("content-security-policy"));
             for (const header of cspHeaders) delete responseHeaders[header];
             done({ responseHeaders });
@@ -96,20 +116,24 @@ module.exports = () => {
             }
 
             const window = new target(options);
+            // TODO: remove @ts-ignore
+            // @ts-ignore
             window.webContents.originalPreload = originalPreload;
             return window;
         }
     });
 
     const electronPath = require.resolve("electron");
-    delete require.cache[electronPath].exports;
-    require.cache[electronPath].exports = {
-        ...electron,
-        BrowserWindow: ProxiedBrowserWindow
-    };
+    if (require.cache[electronPath] !== undefined) {
+        delete require.cache[electronPath]!.exports;
+        require.cache[electronPath]!.exports = {
+            ...electron,
+            BrowserWindow: ProxiedBrowserWindow
+        };
+    }
 
     // #endregion
 
     // TODO: nucleus: Do we want to bother logging this? Trying to keep parity with the shelter injector...
-    logShelter("Starting original...");
-};
+    shelterLog("Starting original...");
+}

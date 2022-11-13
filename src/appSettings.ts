@@ -3,10 +3,12 @@ import fs from "fs";
 export class SettingsStore {
     acrylicWindow: boolean;
     supportsAcrylic: boolean;
+    injectShelter: boolean;
 
     constructor() {
         this.acrylicWindow = false;
         this.supportsAcrylic = false;
+        this.injectShelter = false;
     }
 }
 
