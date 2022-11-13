@@ -57,7 +57,7 @@ module.exports = () => {
         event.returnValue = event.sender.originalPreload;
     });
 
-    electron.ipcMain.handle("SHELTER_BUNDLE_FETCH", async (event) => {
+    electron.ipcMain.handle("SHELTER_BUNDLE_FETCH", async () => {
         if (!shelterBundle) await Promise((r) => setImmediate(r));
         return shelterBundle;
     });
