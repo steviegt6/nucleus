@@ -106,7 +106,7 @@ function injectShelter() {
             const options = args[0];
             let originalPreload;
 
-            if (options.webPreferences?.preload && options.title) {
+            if (options.webPreferences?.preload && options.title && require.main !== undefined) {
                 // We replace the preload instead of using setPreloads because of some differences in internal behavior.
                 const basePath = path.join(path.dirname(require.main.filename), "..");
                 fs.writeFileSync(path.join(basePath, "shelter-preload.js"), SHELTER_PRELOAD_SCRIPT);
