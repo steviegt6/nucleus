@@ -1,10 +1,13 @@
-node_modules
-src/package-lock.json
 *.asar
-_*
+copy.sh
+run.sh
+**/package-lock.json
+**/node_modules/
 miniSrc/
+_*
 
-*.crswap # crostini tmp files
+# crostini tmp files
+*.crswap
 
 # personal files
 run.sh

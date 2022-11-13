@@ -1,1 +1,1 @@
-module.exports = require('./' + process.platform);
+module.exports = require("./" + process.platform);
