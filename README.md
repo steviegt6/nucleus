@@ -12,21 +12,21 @@ _Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 
 nucleus aims to be a feature-rich OpenAsar fork, and includes:
 
-- **:house: shelter injection**: comes packaged with the ability to inject [`uwu/shelter`](https://github.com/uwu/shelter);
-- **:memo: built-in settings file editing**: adds the ability to directly edit your `settings.json` file for one reason or another;
-- **:window: acrylic windowing**: (Windows-only) acrylic windows provided by [`pyke/vibe`](https://github.com/pykeio/vibe) under [Apache 2.0](https://github.com/pykeio/vibe/blob/main/LICENSE).
+-   **:house: shelter injection**: comes packaged with the ability to inject [`uwu/shelter`](https://github.com/uwu/shelter);
+-   **:memo: built-in settings file editing**: adds the ability to directly edit your `settings.json` file for one reason or another;
+-   **:window: acrylic windowing**: (Windows-only) acrylic windows provided by [`pyke/vibe`](https://github.com/pykeio/vibe) under [Apache 2.0](https://github.com/pykeio/vibe/blob/main/LICENSE).
 
 ### OpenAsar Features
 
 nucleus has all of OpenAsar's features, such as:
 
-- **:rocket: faster start-up speeds**: upwards of 2x-4x increases observed;
-- **:chart_with_upwards_trend: increased performance**: increased speeds result in a snappier client;
-- **:paintbrush: start-up splash theming**: easy theming for your start-up splash compatible with client mods;
-- **:electric_plug: drop-in installation**: all you need to do is change a file (uninstalling is the same);
-- **:gear: configurable features**: options to enhance both Discord and nucleus (see: [Configuration](#configuration));
-- **:feather: lightweight file size**: about <2% of Discord's original size (9mb -> ~50kb);
-- **:shield: reduced tracking**: removes Discord's built-in tracking for crashes and errors in the bootstrapper (not app itself).
+-   **:rocket: faster start-up speeds**: upwards of 2x-4x increases observed;
+-   **:chart_with_upwards_trend: increased performance**: increased speeds result in a snappier client;
+-   **:paintbrush: start-up splash theming**: easy theming for your start-up splash compatible with client mods;
+-   **:electric_plug: drop-in installation**: all you need to do is change a file (uninstalling is the same);
+-   **:gear: configurable features**: options to enhance both Discord and nucleus (see: [Configuration](#configuration));
+-   **:feather: lightweight file size**: about <2% of Discord's original size (9mb -> ~50kb);
+-   **:shield: reduced tracking**: removes Discord's built-in tracking for crashes and errors in the bootstrapper (not app itself).
 
 **See the [FAQ](FAQ.md) for more details!**
 
@@ -38,8 +38,6 @@ Users should download the latest release binary. See how by following the [insta
 
 ### Developers
 
-To develop nucleus, all you must do is obtain a copy of the source code by cloning the repository, inject the polyfills, pack the app into a `.asar` file, and replace Discord's existing one. This may be condensed down into several simple commands:
-
 ```sh
 # clone the repo
 git clone https://github.com/steviegt6/nucleus.git
@@ -47,18 +45,15 @@ git clone https://github.com/steviegt6/nucleus.git
 # move into the newly-created directory
 cd nucleus
 
-# inject polyfills
-sh ./scripts/injectPolyfills.sh
+# install dependencies
+npm i
 
-# pack into app.asar
-asar pack src app.asar
+# if you just want to build
+npm run pack
 
-# copy it to where your discord app.asar is located
-cp app.asar "path/to/your/app.asar"
-
-# run discord through some means (windows users may want the start command, while linux users may have a command to start discord)
-# start "path/to/your/discord.exe"
-# discord-canary "$@"
+# if you want to build and run
+# the dev script just runs tsc, scripts/pack.js, scripts/copy.js, and scripts/run.js
+npm run dev
 ```
 
 nucleus, like OpenAsar, also depends on a CDN to retrieve files from (namely, the config). Our fork is hosted at [steviegt6/nucleus-cdn](https://github.com/steviegt6/nucleus-cdn) ([cdn.nucleus.tomat.dev](https://cdn.nucleus.tomat.dev)). Depending on what you are developing or testing, you may need to host your own CDN locally and change `./src/utils/win.js` appropriately.
