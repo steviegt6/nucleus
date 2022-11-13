@@ -29,7 +29,6 @@ jobs:
               run: |
                   npm i
                   npm i -g typescript
-                  npm i -g tsc
                   tsc
 
             - name: Pack base asar
