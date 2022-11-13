@@ -41,7 +41,7 @@ export class Settings {
     }
 
     set(k: string, v: any): void {
-        this.store[k].v;
+        this.store[k] = v;
     }
 
     save(): void {
