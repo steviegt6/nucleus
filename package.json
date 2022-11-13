@@ -9,6 +9,7 @@
         "dev": "node scripts/dev.js"
     },
     "devDependencies": {
+        "@types/node": "^18.11.9",
         "eslint": "^8.27.0",
         "prettier": "^2.7.1",
         "typescript": "^4.8.4"

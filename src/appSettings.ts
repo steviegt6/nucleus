@@ -1,12 +1,16 @@
-const fs = require("fs");
+import fs from "fs";
 
 class Settings {
+    store: Map<string, any>;
+    path: string;
+    mod: any | undefined;
+
     // Heavily based on original for compat, but simplified and tweaked
-    constructor(path) {
+    constructor(path: string) {
         try {
-            this.store = JSON.parse(fs.readFileSync(path));
+            this.store = JSON.parse(fs.readFileSync(path, "utf8"));
         } catch {
-            this.store = {};
+            this.store = new Map();
         }
 
         this.path = path;
@@ -22,15 +26,15 @@ class Settings {
         } catch {}
     }
 
-    get(k, d) {
-        return this.store[k] ?? d;
+    get(k: string, d: any): any {
+        return this.store.get(k) ?? d;
     }
 
-    set(k, v) {
-        this.store[k] = v;
+    set(k: string, v: any): void {
+        this.store.set(k, v);
     }
 
-    save() {
+    save(): void {
         if (this.mod && this.mod !== this.getMod()) return; // File was last modified after Settings was made, so was externally edited therefore we don't save over
 
         try {
@@ -44,5 +48,7 @@ class Settings {
     }
 }
 
-let inst; // Instance of class
-exports.getSettings = () => (inst = inst ?? new Settings(require("path").join(require("./paths").getUserData(), "settings.json")));
+let inst: Settings; // Instance of class
+export function getSettings() {
+    inst = inst ?? new Settings(require("path").join(require("./paths").getUserData(), "settings.json"));
+}
