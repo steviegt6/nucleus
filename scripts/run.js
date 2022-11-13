@@ -16,8 +16,11 @@ const PLATFORM_RUNNERS = {
     darwin: () => {
         console.error("Contribute macOS development support @ https://github.com/steviegt6/nucleus");
     },
-    linux: () => {
-        console.error("Contribute Linux development support @ https://github.com/steviegt6/nucleus");
+    linux: (dir) => {
+        const discordDirectory = readdirSync(dir);
+        const executable = join(dir, discordDirectory.filter((x) => x.toLowerCase().startsWith("discord") && !x.endsWith(".desktop") && !x.endsWith(".png"))[0]);
+        console.log("Running " + executable + "...");
+        execSync(`"${executable}"`);
     }
 };
 

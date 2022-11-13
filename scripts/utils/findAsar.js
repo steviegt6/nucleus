@@ -55,7 +55,7 @@ const APPEND_PATH_FUNCTIONS = {
 };
 
 function winPath(dir) {
-    return join(process.env.LOCALAPPDATA, dir);
+    return join(process.env.LOCALAPPDATA || "", dir);
 }
 
 module.exports.getDir = (distType) => {
