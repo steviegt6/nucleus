@@ -1,2 +1,2 @@
 // Stub
-exports.lookup = (file) => 'text/plain';
+exports.lookup = (file) => "text/plain";
