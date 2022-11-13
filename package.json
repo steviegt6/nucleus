@@ -1,8 +1,12 @@
 {
     "name": "nucleus",
     "description": "Feature-rick fork of GooseMod/OpenAsar with additional features.",
+    "scripts": {
+        "build": "tsc"
+    },
     "devDependencies": {
         "eslint": "^8.27.0",
-        "prettier": "^2.7.1"
+        "prettier": "^2.7.1",
+        "typescript": "^4.8.4"
     }
 }

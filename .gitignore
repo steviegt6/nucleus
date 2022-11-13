@@ -1,14 +1,4 @@
-*.asar
-copy.sh
-run.sh
+node_modules/
+!src/node_modules/
 **/package-lock.json
-**/node_modules/
 miniSrc/
-_*
-
-# crostini tmp files
-*.crswap
-
-# personal files
-run.sh
-copy.sh
