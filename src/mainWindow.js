@@ -34,7 +34,7 @@ setInterval(() => {
   const el = document.createElement('span');
   el.id = 'openasar-ver';
 
-  el.innerHTML = '<code style="font-size: 100%;">nucleus</code> <hash>';
+  el.innerHTML = 'nucleus <hash>';
   el.onclick = () => DiscordNative.ipc.send('DISCORD_UPDATED_QUOTES', 'o');
 
   host.append(document.createTextNode(' | '), el);

@@ -1,4 +1,4 @@
-# `nucleus` FAQ
+# nucleus FAQ
 
 ### What is an ASAR?
 
@@ -11,7 +11,7 @@ Discord's `app.asar` includes functionalities, such as:
 - crash and error handling/reporting;
 - and the loading start-up splash screen.
 
-_`nucleus`_ is an open-source rewrite and alternative to Discord's `app.asar` which hopes to bring the various features outlined in the README.
+_nucleus_ is an open-source rewrite and alternative to Discord's `app.asar` which hopes to bring the various features outlined in the README.
 
 ### Does nucleus support X mod?
 
@@ -19,13 +19,13 @@ Under most circumstances, yes. nucleus is known to support client mods such as B
 
 ### Why doesn't this speed up Discord for me?
 
-If `nucleus` was not noticeably faster (in terms of start-up time), you likely already possess a powerful-enough computer. `nucleus` speeds up start-up times most noticeably on lower-end hardware—especially those without an SSD.
+If nucleus was not noticeably faster (in terms of start-up time), you likely already possess a powerful-enough computer. nucleus speeds up start-up times most noticeably on lower-end hardware—especially those without an SSD.
 
 Even with a beefier you computer, you may still notice a subtle speed improvement (~1.2x).
 
-### How does `nucleus` make the client "snappier" (more performant)?
+### How does nucleus make the client "snappier" (more performant)?
 
-`nucleus` optimizes Chromium (the web engine Discord uses) to help increase performance—mostly rendering—which appears to make most (~90%) people's clients looking noticeably snappier. This effect is best observed with things such as scrolling quickly, switching channels, and with various animations like tooltips for servers in the sidebar and settings opening/closing.
+nucleus optimizes Chromium (the web engine Discord uses) to help increase performance—mostly rendering—which appears to make most (~90%) people's clients looking noticeably snappier. This effect is best observed with things such as scrolling quickly, switching channels, and with various animations like tooltips for servers in the sidebar and settings opening/closing.
 
 ### What changes allow for these performance improvements?
 
@@ -33,7 +33,7 @@ The bulk of changes related to performance improvements are a side effect of rew
 
 ### How is the archive so small?
 
-Compared to Discord's original bootstrapper, `nucleus` is <2% of the size. This is a result of rewriting the bootstrapper, as all NPM dependencies were replaced with our own custom, lightweight code in the process.
+Compared to Discord's original bootstrapper, nucleus is <2% of the size. This is a result of rewriting the bootstrapper, as all NPM dependencies were replaced with our own custom, lightweight code in the process.
 
 ### What is the "Quickstart" option??
 
@@ -45,14 +45,14 @@ No, and depends on your definition. if by "original," you mean "is all of this r
 
 ### Does this break Discord's Terms of Service?
 
-Yes, this is a modification to their client and thus falls under their terms. `nucleus`, its developers, and its contributors are not to be held liable for any damages caused by the use of this project.
+Yes, this is a modification to their client and thus falls under their terms. nucleus, its developers, and its contributors are not to be held liable for any damages caused by the use of this project.
 
-_Though, if it's any consolation, there have been no known cases of Discord taking action against users for simply using client mods, especially none that are known to be a result of OpenAsar or `nucleus`._
+_Though, if it's any consolation, there have been no known cases of Discord taking action against users for simply using client mods, especially none that are known to be a result of OpenAsar or nucleus._
 
 ### Can I use this code in my own project?
 
-Yes—`nucleus` is a fork too! Just make sure to properly [respect the license](LICENSE) and clearly credit `nucleus` and OpenAsar.
+Yes—nucleus is a fork too! Just make sure to properly [respect the license](LICENSE) and clearly credit nucleus and OpenAsar.
 
-### Does `nucleus` update itself?
+### Does nucleus update itself?
 
 Yes... with a catch. On Windows, it works out of the box; however, on macOS or Linux, you'll need to change the permissions for the entire resources folder for it to work.
