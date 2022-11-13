@@ -27,7 +27,8 @@ jobs:
 
             - name: Build TypeScript
               run: |
-                  npm install
+                  npm i
+                  npm i -g typescript
                   npm i -g tsc
                   tsc
 
