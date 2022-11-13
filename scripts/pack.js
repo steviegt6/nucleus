@@ -4,15 +4,15 @@ const { execSync } = require("child_process");
 const { copyFileSync, mkdirSync, existsSync } = require("fs");
 const { join } = require("path");
 
-const IGNORE_VIBE = process.argv.indexOf("--ignore-vibe") !== -1;
+const INCLUDE_VIBE = process.argv.indexOf("--include-vibe") !== -1;
 
 function copyFile(name) {
     copyFileSync(join("src", name), join("dist", name));
 }
 
-console.log("Copying over files before packing into .asar...   IGNORE_VIBE: " + IGNORE_VIBE);
+console.log("Copying over files before packing into .asar...   INCLUDE_VIBE: " + INCLUDE_VIBE);
 
-if (!IGNORE_VIBE) copyFile("vibe.node");
+if (INCLUDE_VIBE) copyFile("vibe.node");
 copyFile("package.json");
 if (!existsSync(join("dist", "node_modules"))) mkdirSync(join("dist", "node_modules"));
 copyFile(join("node_modules", "mime-types.js"));
@@ -21,5 +21,5 @@ copyFile("package.json");
 
 console.log("Packing into .asar...");
 
-const asarName = IGNORE_VIBE ? "app.asar" : "app-acrylic.asar";
-execSync(`asar pack dist ${asarName}.asar`);
+const asarName = INCLUDE_VIBE ? "app-acrylic.asar" : "app.asar";
+execSync(`asar pack dist ${asarName}`);

@@ -36,7 +36,7 @@ jobs:
                   npm i -g asar
                   node scripts/strip.js
                   node scripts/pack.js
-                  node scripts/pack.js --ignore-vibe
+                  node scripts/pack.js --include-vibe
 
             - name: Upload app artifact
               uses: actions/upload-artifact@v2
