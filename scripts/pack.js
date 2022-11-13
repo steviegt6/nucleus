@@ -21,4 +21,5 @@ copyFile("package.json");
 
 console.log("Packing into .asar...");
 
-execSync("asar pack dist app.asar");
+const asarName = IGNORE_VIBE ? "app.asar" : "app-acrylic.asar";
+execSync(`asar pack dist ${asarName}.asar`);
