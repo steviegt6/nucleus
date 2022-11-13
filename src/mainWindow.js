@@ -61,7 +61,9 @@ injCSS(`
   color: var(--text-normal);
 }`);
 
-injCSS("<css>");
+// prettier-ignore
+// eslint-disable-next-line quotes
+injCSS(`<css>`);
 
 openasar = {}; // Define global for any mods which want to know / etc
 nucleus = {}; // So people can check if the OpenAsar install is a nucleus distribution
