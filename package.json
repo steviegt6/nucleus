@@ -1,9 +1,8 @@
 {
-  "name": "discord",
-  "description": "Open-source alternative of Discord desktop's app.asar",
-  "main": "index.js",
-  "devDependencies": {
-    "eslint": "^8.27.0",
-    "prettier": "^2.7.1"
-  }
+    "name": "nucleus",
+    "description": "Feature-rick fork of GooseMod/OpenAsar with additional features.",
+    "devDependencies": {
+        "eslint": "^8.27.0",
+        "prettier": "^2.7.1"
+    }
 }
