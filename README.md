@@ -49,6 +49,7 @@ cd nucleus
 npm i
 
 # if you just want to build
+tsc
 npm run pack
 
 # if you want to build and run
