@@ -1,12 +1,13 @@
 const { join } = require("path");
 
-global.log = (area, ...args) => console.log(`[\x1b[38;2;88;101;242mnucleus\x1b[0m > ${area}]`, ...args); // Make log global for easy usage everywhere
-
+global.log = (area, ...args) => console.log(`[\x1b[38;2;88;101;242mnucleus\x1b[0m > ${area}]`, ...args);
 global.oaVersion = "nightly";
 
 log("Init", "nucleus", oaVersion);
 
 if (process.resourcesPath.startsWith("/usr/lib/electron")) global.systemElectron = true; // Using system electron, flag for other places
+// @ts-ignore
+// TODO: figure out a way to make this not readonly so we can have actual type checking
 process.resourcesPath = join(__dirname, ".."); // Force resourcesPath for system electron
 
 const paths = require("./paths");
@@ -22,6 +23,7 @@ try {
     global.vibe = require("./vibe.node");
     global.oaConfig.supportsAcrylic = true;
 } catch (e) {
+    // @ts-ignore
     global.vibe = [];
     global.oaConfig.supportsAcrylic = false;
 }

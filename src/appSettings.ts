@@ -1,7 +1,17 @@
 import fs from "fs";
 
-class Settings {
-    store: Map<string, any>;
+export class SettingsStore {
+    acrylicWindow: boolean;
+    supportsAcrylic: boolean;
+
+    constructor() {
+        this.acrylicWindow = false;
+        this.supportsAcrylic = false;
+    }
+}
+
+export class Settings {
+    store: any[string];
     path: string;
     mod: any | undefined;
 
@@ -10,7 +20,7 @@ class Settings {
         try {
             this.store = JSON.parse(fs.readFileSync(path, "utf8"));
         } catch {
-            this.store = new Map();
+            this.store = [];
         }
 
         this.path = path;
@@ -27,11 +37,11 @@ class Settings {
     }
 
     get(k: string, d: any): any {
-        return this.store.get(k) ?? d;
+        return this.store[k] ?? d;
     }
 
     set(k: string, v: any): void {
-        this.store.set(k, v);
+        this.store[k].v;
     }
 
     save(): void {
@@ -49,6 +59,6 @@ class Settings {
 }
 
 let inst: Settings; // Instance of class
-export function getSettings() {
-    inst = inst ?? new Settings(require("path").join(require("./paths").getUserData(), "settings.json"));
+export function getSettings(): Settings {
+    return (inst = inst ?? new Settings(require("path").join(require("./paths").getUserData(), "settings.json")));
 }
