@@ -8,9 +8,17 @@ _Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 
 ---
 
-### Features
+### `nucleus` Features
 
-`nucleus`' changes include many features, such as:
+`nucleus` aims to be a feature-rich OpenAsar fork, and includes:
+
+- **:house: shelter injection**: comes packaged with the ability to inject [`uwu/shelter`](https://github.com/uwu/shelter);
+- **:memo: built-in settings file editing**: adds the ability to directly edit your `settings.json` file for one reason or another;
+- **:window: acrylic windowing**: (Windows-only) acrylic windows provided by [`pyke/vibe`](https://github.com/pykeio/vibe) under [Apache 2.0](https://github.com/pykeio/vibe/blob/main/LICENSE).
+
+### OpenAsar Features
+
+`nucleus` has all of OpenAsar's features, such as:
 
 - **:rocket: faster start-up speeds**: upwards of 2x-4x increases observed;
 - **:chart_with_upwards_trend: increased performance**: increased speeds result in a snappier client;
@@ -20,7 +28,7 @@ _Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
 - **:feather: lightweight file size**: about <2% of Discord's original size (9mb -> ~50kb);
 - **:shield: reduced tracking**: removes Discord's built-in tracking for crashes and errors in the bootstrapper (not app itself).
 
-**Set the [FAQ](FAQ.md) for more details!**
+**See the [FAQ](FAQ.md) for more details!**
 
 ## Obtaining a Copy
 
