@@ -2,7 +2,11 @@
     "name": "nucleus",
     "description": "Feature-rick fork of GooseMod/OpenAsar with additional features.",
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "pack": "node scripts/pack.js",
+        "copy": "node scripts/copy.js",
+        "run": "node scripts/run.js",
+        "dev": "node scripts/dev.js"
     },
     "devDependencies": {
         "eslint": "^8.27.0",

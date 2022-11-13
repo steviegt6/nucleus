@@ -2,8 +2,9 @@
     "semi": true,
     "trailingComma": "none",
     "singleQuote": false,
-    "printWidth": 256,
+    "printWidth": 300,
     "tabWidth": 4,
     "useTabs": false,
-    "withNodeModules": true
+    "withNodeModules": true,
+    "quoteProps": "preserve"
 }
