@@ -17,7 +17,8 @@ global.settings = require("./appSettings").getSettings();
 global.oaConfig = settings.get("openasar", {});
 
 // Inject mods right after resolving settings.
-require("./mods/modInjector")();
+import addonHandler from "./addons/addonHandler";
+addonHandler();
 
 try {
     global.vibe = require("./vibe.node");
