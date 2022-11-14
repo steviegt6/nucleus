@@ -1,7 +1,18 @@
+# nucleus Roadmap
+
+Very rough milestones for nucleus.
+
+## Milestone 1 - OpenAsar feature parity
+
+- [ ] Rewrite core app in TypeScript.
+- [ ] Achieve feature parity with OpenAsar.
+
 # OpenAsar Roadmap
+
 These are rough milestones for OpenAsar progress over original Discord's asar.
 
 ## Milestone 3 - complete rewrite
+
 - [X] Self-write 100% of code:
   - [X] Updater
   - [X] Splash backend
@@ -9,6 +20,7 @@ These are rough milestones for OpenAsar progress over original Discord's asar.
 - [ ] Full custom splashes
 
 ## Milestone 2 - major improvements over original (recommended for average use)
+
 - [X] Look into performance optimisations via Chromium flags
 - [X] More config options
 - [X] Fixes for custom setups
@@ -19,6 +31,7 @@ These are rough milestones for OpenAsar progress over original Discord's asar.
 
 
 ## Milestone 1 - alternative
+
 - [X] A bunch of specific minor fixes / features
 - [X] Auto start
 - [X] First run
