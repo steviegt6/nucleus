@@ -1,12 +1,12 @@
-_Forked from [GooseMod/OpenAsar](https://github.com/GooseMod/OpenAsar)._
-
 # nucleus ![Nightly Status](https://github.com/steviegt6/nucleus/actions/workflows/nightly.yml/badge.svg) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
-
-<!-- ### Acrylic fork (Windows only) - uses [`@pyke/vibe`](https://github.com/pykeio/vibe) under [Apache 2.0](https://github.com/pykeio/vibe/blob/main/LICENSE) -->
 
 > Open-source reimplementation of Discord's Desktop app bootstraper (referred to by many as the `app.asar`).
 
 ---
+
+## What is nucleus?
+
+nucleus is a reimplementation of the bootstrapper used by Desktop distributions of Discord. This is an alternative method of modding Discord through somewhat disconnected means.
 
 ### nucleus Features
 
