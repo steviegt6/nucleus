@@ -2,7 +2,7 @@
     "name": "nucleus",
     "description": "Feature-rick fork of GooseMod/OpenAsar with additional features.",
     "scripts": {
-        "build": "tsc",
+        "build": "tsc -p ./src/tsconfig.json",
         "pack": "node scripts/pack.js",
         "copy": "node scripts/copy.js",
         "run": "node scripts/run.js",
