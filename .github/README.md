@@ -16,6 +16,10 @@ nucleus aims to be a feature-rich OpenAsar fork, and includes:
 -   **:memo: built-in settings file editing**: adds the ability to directly edit your `settings.json` file for one reason or another;
 -   **:window: acrylic windowing**: (Windows-only) acrylic windows provided by [`pyke/vibe`](https://github.com/pykeio/vibe) under [Apache 2.0](https://github.com/pykeio/vibe/blob/main/LICENSE).
 
+#### nucleus Roadmap
+
+Want to see future plans? View the [roadmap](ROADMAP.md).
+
 ### OpenAsar Features
 
 nucleus has all of OpenAsar's features, such as:
