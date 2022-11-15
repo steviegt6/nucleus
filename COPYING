@@ -1,0 +1,7 @@
+nucleus is provided under the `MIT License` and is subject to the terms in `LICENSES/MIT`.
+
+nucleus is a fork of OpenAsar (github.com/GooseMod/OpenAsar), which is provided under the `MIT License` and is subject to the terms in `LICENSES/MIT`.
+
+nucleus includes a binary distribution of vibe (github.com/pykeio/vibe), which is provided under the `Apache 2.0 License` and is subject to the terms in `LICENSES/Apache-2.0`.
+
+nucleus includes a lightly-modified variant of shelter's (github.com/uwu/shelter) injector, which is provided under the `CC 1.0 Universal` license and is subject to the terms in `LICENSE/CC-1.0-Universal`.
