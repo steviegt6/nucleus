@@ -38,7 +38,7 @@ export class Settings {
         } catch {}
     }
 
-    get(k: string, d: any): any {
+    get(k: string, d: any = undefined): any {
         return this.store[k] ?? d;
     }
 
