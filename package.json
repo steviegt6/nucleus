@@ -3,10 +3,10 @@
     "description": "Feature-rick fork of GooseMod/OpenAsar with additional features.",
     "scripts": {
         "build": "tsc -p ./src/tsconfig.json",
-        "pack": "node scripts/pack.js",
-        "copy": "node scripts/copy.js",
-        "run": "node scripts/run.js",
-        "dev": "node scripts/dev.js"
+        "pack": "node src/scripts/pack.js",
+        "copy": "node src/scripts/copy.js",
+        "run": "node src/scripts/run.js",
+        "dev": "node src/scripts/dev.js"
     },
     "devDependencies": {
         "@types/electron": "^1.6.10",
