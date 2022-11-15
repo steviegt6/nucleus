@@ -110,7 +110,7 @@ jobs:
             - name: Setup Client
               shell: bash
               run: |
-                  node scripts/downloadWin.js
+                  node packages/scripts/downloadWin.js
                   tar xf client.tar
 
                   # Install nucleus build and setup environment
