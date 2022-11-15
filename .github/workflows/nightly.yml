@@ -3,8 +3,7 @@ name: Nightly
 on:
     push:
         paths:
-            - "src/**"
-            - "scripts/**"
+            - "packages/**"
             - ".github/workflows/**"
 
 jobs:
@@ -22,20 +21,20 @@ jobs:
 
             - name: Weave commit SHA
               run: |
-                  sed -i -e "s/nightly/nightly-$(git rev-parse HEAD | cut -c 1-7)/" src/index.ts
+                  sed -i -e "s/nightly/nightly-$(git rev-parse HEAD | cut -c 1-7)/" packages/discord/src/index.ts
 
-            - name: Build TypeScript
+            - name: Build packages/discord (TypeScript)
               run: |
                   npm i
                   npm i -g typescript
-                  tsc
+                  tsc -p ./packages/discord/tsconfig.json
 
             - name: Pack base asar
               run: |
                   npm i -g asar
-                  node scripts/strip.js
-                  node scripts/pack.js
-                  node scripts/pack.js --include-vibe
+                  node packages/scripts/strip.js
+                  node packages/scripts/pack.js
+                  node packages/scripts/pack.js --include-vibe
 
             - name: Upload app artifact
               uses: actions/upload-artifact@v2
@@ -111,7 +110,7 @@ jobs:
             - name: Setup Client
               shell: bash
               run: |
-                  node scripts/downloadWin.js
+                  node packages/scripts/downloadWin.js
                   tar xf client.tar
 
                   # Install nucleus build and setup environment

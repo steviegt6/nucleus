@@ -1,0 +1,6 @@
+{
+    "name": "discord",
+    "description": "Discord Client for Desktop - Bootstrapper",
+    "private": true,
+    "main": "index.js"
+}

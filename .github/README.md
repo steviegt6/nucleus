@@ -61,7 +61,7 @@ npm run pack
 npm run dev
 ```
 
-nucleus, like OpenAsar, also depends on a CDN to retrieve files from (namely, the config). Our fork is hosted at [steviegt6/nucleus-cdn](https://github.com/steviegt6/nucleus-cdn) ([cdn.nucleus.tomat.dev](https://cdn.nucleus.tomat.dev)). Depending on what you are developing or testing, you may need to host your own CDN locally and change `./src/utils/win.js` appropriately.
+<!-- nucleus, like OpenAsar, also depends on a CDN to retrieve files from (namely, the config). Our fork is hosted at [steviegt6/nucleus-cdn](https://github.com/steviegt6/nucleus-cdn) ([cdn.nucleus.tomat.dev](https://cdn.nucleus.tomat.dev)). Depending on what you are developing or testing, you may need to host your own CDN locally and change `./src/utils/win.js` appropriately. -->
 
 ## Configuration
 
