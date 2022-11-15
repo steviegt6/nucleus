@@ -1,6 +1,6 @@
 {
     "name": "nucleus",
-    "description": "Feature-rick fork of GooseMod/OpenAsar with additional features.",
+    "description": "Feature-rick fork of GooseMod/OpenAsar with additional features; reimplementation of Discord's desktop bootstrapper.",
     "scripts": {
         "build": "tsc -p ./packages/discord/tsconfig.json",
         "pack": "node packages/scripts/pack.js",
