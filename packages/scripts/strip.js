@@ -54,4 +54,4 @@ const tree = (dirPath) =>
         if (!x.includes(".")) return tree(path);
     });
 
-tree(join(__dirname, "..", "src"));
+tree(join(__dirname, "..", "discord", "src"));
