@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { join, resolve, basename } = require("path");
 
-const Constants = require("./Constants");
+const Constants = require("./utils/Constants");
 const reg = (a, c) => require("child_process").execFile("reg.exe", a, c);
 
 const exec = process.execPath;

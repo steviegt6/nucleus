@@ -12,7 +12,7 @@ global.releaseChannel = buildInfo.releaseChannel;
 
 log("BuildInfo", buildInfo);
 
-const Constants = require("./Constants");
+const Constants = require("./utils/Constants");
 app.setAppUserModelId(Constants.APP_ID);
 
 app.name = "discord"; // Force name as sometimes breaks
