@@ -1,9 +1,15 @@
+import * as nucleusConstants from "./utils/nucleusConstants";
+
 const { join } = require("path");
 
 global.log = (area, ...args) => console.log(`[\x1b[38;2;88;101;242mnucleus\x1b[0m > ${area}]`, ...args);
 global.oaVersion = "nightly";
 
 log("Init", "nucleus", oaVersion);
+
+log("Init", "");
+nucleusConstants.LICENSE_TEXT.split("\n").forEach((line) => log("Init", line));
+log("Init", "");
 
 if (process.resourcesPath.startsWith("/usr/lib/electron")) global.systemElectron = true; // Using system electron, flag for other places
 // @ts-ignore
