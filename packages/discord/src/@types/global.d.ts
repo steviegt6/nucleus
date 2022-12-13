@@ -8,6 +8,7 @@ export class Vibe {
 
 declare global {
     var oaVersion: string;
+    var releaseChannel: string;
     var systemElectron: boolean;
     var settings: Settings;
     var oaConfig: SettingsStore;
