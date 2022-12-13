@@ -19,12 +19,12 @@ jobs:
               with:
                   node-version: 16.x
 
-    - name: Pack base asar
-      run: |
-        npm i -g asar
-        node scripts/strip.js
-        npx asar pack src app.asar
-        sed -i -e "s/nightly/nightly-$(git rev-parse HEAD | cut -c 1-7)/" packages/discord/src/index.ts
+            - name: Pack base asar
+              run: |
+                  npm i -g asar
+                  node scripts/strip.js
+                  npx asar pack src app.asar
+                  sed -i -e "s/nightly/nightly-$(git rev-parse HEAD | cut -c 1-7)/" packages/discord/src/index.ts
 
             - name: Build packages/discord (TypeScript)
               run: |
@@ -179,7 +179,7 @@ jobs:
                   gh release create ${{ env.VERSION }} -t "Nightly" -n "$(git rev-parse HEAD | cut -c 1-7) | $(git log -1 --pretty=%B)" ${{ env.FILES }}
               env:
                   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-                  VERSION: 'nightly'
+                  VERSION: "nightly"
                   FILES: app.asar app-acrylic.asar
 
     # debug-linux:
