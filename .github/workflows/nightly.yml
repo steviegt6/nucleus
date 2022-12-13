@@ -146,6 +146,9 @@ jobs:
             - test-win
         runs-on: ubuntu-latest
 
+        # TEMPORARY: Figure out branch releases instead later...
+        if: github.ref == 'refs/heads/main'
+
         steps:
             - uses: actions/checkout@v2
 
