@@ -68,8 +68,6 @@ injCSS(`<css>`);
 openasar = {}; // Define global for any mods which want to know / etc
 nucleus = {}; // So people can check if the OpenAsar install is a nucleus distribution
 
-DiscordNative.nativeModules.ensureModule("discord_voice"); // Ensure discord_voice to generally prevent corruption message / broken VC, also for deferring for fresh start
-
 setInterval(() => {
     // Try init themesync
     try {

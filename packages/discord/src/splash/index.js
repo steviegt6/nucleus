@@ -120,7 +120,7 @@ const initNew = async (inst) => {
     toSend = -1;
 
     const retryOptions = {
-        skip_host_delta: false,
+        skip_host_delta: true,
         skip_module_delta: {}
     };
 

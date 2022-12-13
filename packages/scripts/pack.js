@@ -13,9 +13,6 @@ function copyFile(name) {
 console.log("Copying over files before packing into .asar...   INCLUDE_VIBE: " + INCLUDE_VIBE);
 
 if (INCLUDE_VIBE) copyFile("vibe.node");
-if (!existsSync(join("dist", "discord", "node_modules"))) mkdirSync(join("dist", "discord", "node_modules"));
-copyFile(join("node_modules", "mime-types.js"));
-copyFile(join("node_modules", "request.js"));
 
 copyFileSync(join("packages", "discord", "package.json"), join("dist", "discord", "package.json"));
 

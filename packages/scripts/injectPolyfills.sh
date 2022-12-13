@@ -1,3 +1,2 @@
-rm -rf src/node_modules
-mkdir src/node_modules
-cp -rf poly/* src/node_modules
+#!/bin/sh
+echo "This script (injectPolyfills) only exists to stop older build scripts from breaking, you no longer need to run it."

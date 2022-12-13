@@ -3,7 +3,7 @@ const fs = require("fs");
 const Module = require("module");
 const { execFile } = require("child_process");
 const { app, autoUpdater } = require("electron");
-const request = require("request");
+const { get } = require("https");
 
 const paths = require("../paths");
 
@@ -37,6 +37,28 @@ const resetTracking = () => {
     installing = Object.assign({}, base);
 };
 
+const req = (url) =>
+    new Promise((res) =>
+        get(url, (r) => {
+            // Minimal wrapper around https.get to include body
+            let dat = "";
+            r.on("data", (b) => (dat += b.toString()));
+
+            r.on("end", () => res([r, dat]));
+        })
+    );
+
+const redirs = (url) =>
+    new Promise((res) =>
+        get(url, (r) => {
+            // Minimal wrapper around https.get to follow redirects
+            const loc = r.headers.location;
+            if (loc) return redirs(loc).then(res);
+
+            res(r);
+        })
+    );
+
 exports.init = (endpoint, { releaseChannel, version }) => {
     skipHost = settings.get("SKIP_HOST_UPDATE");
     skipModule = settings.get("SKIP_MODULE_UPDATE");
@@ -56,7 +78,7 @@ exports.init = (endpoint, { releaseChannel, version }) => {
     try {
         installed = JSON.parse(fs.readFileSync(manifestPath));
     } catch {
-        for (const m of ["desktop_core", "utils"]) {
+        for (const m of ["desktop_core", "utils", "voice"]) {
             // Ignore actual bootstrap manifest and choose our own core 2, others are deferred
             installed["discord_" + m] = { installedVersion: 0 }; // Set initial version as 0
         }
@@ -70,7 +92,7 @@ exports.init = (endpoint, { releaseChannel, version }) => {
                   }
 
                   checkForUpdates() {
-                      request(this.url, (e, r, b) => {
+                      req(this.url).then(([e, r, b]) => {
                           if (e) return this.emit("error");
 
                           if (r.statusCode === 204) return this.emit("update-not-available");
@@ -102,22 +124,11 @@ exports.init = (endpoint, { releaseChannel, version }) => {
     host.setFeedURL(`${endpoint}/updates/${releaseChannel}?platform=${platform}&version=${version}`);
 
     baseUrl = `${endpoint}/modules/${releaseChannel}`;
-    qs = {
-        host_version: version,
-        platform
-    };
+    qs = `?host_version=${version}&platform=${platform}`;
 };
 
 const checkModules = async () => {
-    remote = await new Promise((res) =>
-        request(
-            {
-                url: baseUrl + "/versions.json",
-                qs
-            },
-            (e, r, b) => res(JSON.parse(b))
-        )
-    );
+    remote = JSON.parse((await req(baseUrl + "/versions.json" + qs))[1]);
 
     for (const name in installed) {
         const inst = installed[name].installedVersion;
@@ -144,20 +155,16 @@ const downloadModule = async (name, ver) => {
     let success,
         total,
         cur = 0;
-    request({
-        url: baseUrl + "/" + name + "/" + ver,
-        qs
-    }).on("response", (res) => {
-        success = res.statusCode === 200;
-        total = parseInt(res.headers["content-length"] ?? 1, 10);
+    const res = await redirs(baseUrl + "/" + name + "/" + ver + qs);
+    success = res.statusCode === 200;
+    total = parseInt(res.headers["content-length"] ?? 1, 10);
 
-        res.pipe(file);
+    res.pipe(file);
 
-        res.on("data", (c) => {
-            cur += c.length;
+    res.on("data", (c) => {
+        cur += c.length;
 
-            events.emit("downloading-module", { name, cur, total });
-        });
+        events.emit("downloading-module", { name, cur, total });
     });
 
     await new Promise((res) => file.on("close", res));
