@@ -22,7 +22,7 @@ jobs:
             - name: Pack base asar
               run: |
                   npm i -g asar
-                  node scripts/strip.js
+                  node packages/scripts/strip.js
                   npx asar pack src app.asar
                   sed -i -e "s/nightly/nightly-$(git rev-parse HEAD | cut -c 1-7)/" packages/discord/src/index.ts
 
@@ -117,8 +117,8 @@ jobs:
                   tar xf client.tar
 
                   # Install nucleus build and setup environment
-                  sed -r -i "s/const config=require\('.\/config'\);/console.log\('ABRA'\);app.quit\(\);  /" app.asar
-                  sed -r -i "s/if\(next!=cur&&!options\?\.allowObsoleteHost\)/if\(false\)                                 /" app.asar
+                  sed -r -i "s/const config = require\(\".\/config\"\);/console.log\(\"ABRA\"\);app.quit\(\);     /" app.asar
+                  sed -r -i "s/if \(next != cur && !options\?\.allowObsoleteHost\)/if\(false\)                                      /" app.asar
                   cp -f app.asar files/resources/app.asar
                   mkdir discord
                   cp -rf files/ discord/app-1.0.0
@@ -145,6 +145,9 @@ jobs:
             - test-linux
             - test-win
         runs-on: ubuntu-latest
+
+        # TEMPORARY: Figure out branch releases instead later...
+        if: github.ref == 'refs/heads/main'
 
         steps:
             - uses: actions/checkout@v2
