@@ -22,7 +22,11 @@ jobs:
             - name: Run CI build script
               run: |
                   sed -i -e "s/nightly/nightly-$(git rev-parse HEAD | cut -c 1-7)/" packages/discord/src/index.ts
-                  ./scripts/ci-build.sh
+                  npm i
+                  npm i -g typescript
+                  npm i -g asar
+                  npm run compile-toolchain
+                  npm run build-ci
 
             - name: Upload app artifact
               uses: actions/upload-artifact@v2
