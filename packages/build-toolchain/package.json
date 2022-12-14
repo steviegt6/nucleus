@@ -1,0 +1,6 @@
+{
+    "name": "build-toolchain",
+    "description": "nucleus Build Toolchain",
+    "private": true,
+    "main": "index.js"
+}
