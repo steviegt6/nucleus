@@ -2,7 +2,7 @@ import BuildTask from "./buildTask";
 import CopyTask from "./copyTask";
 import PackTask from "./packTask";
 import RunTask from "./runTask";
-import Task from "./task";
+import Task, { execTask } from "./task";
 
 export default class DevTask implements Task {
     name: string = "dev";
@@ -13,8 +13,4 @@ export default class DevTask implements Task {
         await execTask(new CopyTask());
         await execTask(new RunTask());
     }
-}
-
-async function execTask(task: Task) {
-    await task.run();
 }

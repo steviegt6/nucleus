@@ -1,5 +1,5 @@
 import prompts from "prompts";
-import { TASKS } from "./tasks/task";
+import { execTask, TASKS } from "./tasks/task";
 
 (async () => {
     console.log("nucleus Build Toolchain");
@@ -13,7 +13,7 @@ import { TASKS } from "./tasks/task";
     }
 
     console.log("Running task: " + task.name);
-    await task.run();
+    await execTask(task);
 })();
 
 function getTask(taskName: string) {
