@@ -30,6 +30,13 @@ module.exports = (o, n) => {
             } catch {}
     });
 
+    if (n === "config")
+        c.on("new-window", (e, url) => {
+            e.preventDefault();
+            console.log("Prevented new window from opening in config: " + url);
+            require("electron").shell.openExternal(url);
+        });
+
     w.loadURL("C:\\Users\\xxlen\\OneDrive\\Documents\\Repositories\\nucleus-cdn\\" + n + ".html");
 
     if (vibe?.enabled === true) {
