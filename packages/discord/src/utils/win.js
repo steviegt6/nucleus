@@ -24,11 +24,13 @@ module.exports = (o, n) => {
     c.once("dom-ready", () => {
         if (oaConfig.themeSync !== false)
             try {
-                c.insertCSS(JSON.parse(require("fs").readFileSync(require("path").join(require("../paths").getUserData(), "userDataCache.json"), "utf8")).openasarSplashCSS);
+                const userData = JSON.parse(require("fs").readFileSync(require("path").join(require("../paths").getUserData(), "userDataCache.json"), "utf8"));
+                c.insertCSS(userData.nucleusCss);
+                c.insertCSS(userData.openasarSplashCSS);
             } catch {}
     });
 
-    w.loadURL("https://cdn.nucleus.tomat.dev/" + n + "?v=" + oaVersion);
+    w.loadURL("C:\\Users\\xxlen\\OneDrive\\Documents\\Repositories\\nucleus-cdn\\" + n + ".html");
 
     if (vibe?.enabled === true) {
         w.webContents.insertCSS("html, body { background: transparent !important; }");

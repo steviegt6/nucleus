@@ -18,12 +18,21 @@ const themesync = async () => {
     const vars = ["--background-primary", "--background-secondary", "--brand-experiment", "--header-primary", "--text-muted"];
 
     let cached = (await DiscordNative.userDataCache.getCached()) || {};
+    let modified = false;
 
     const value = `body { ${vars.reduce((acc, x) => (acc += `${x}: ${getVar(x)}; `), "")} }`;
     const pastValue = cached["openasarSplashCSS"];
     cached["openasarSplashCSS"] = value;
+    modified |= value !== pastValue;
 
-    if (value !== pastValue) DiscordNative.userDataCache.cacheUserData(JSON.stringify(cached));
+    // TEMPORARY HACK:
+    let css = "";
+    for (const sheet of document.styleSheets) for (const rule of sheet.cssRules) css += rule.cssText;
+    const pastCss = cached["nucleusCss"];
+    cached["nucleusCss"] = css;
+    modified |= css !== pastValue;
+
+    if (modified) DiscordNative.userDataCache.cacheUserData(JSON.stringify(cached));
 };
 
 // Settings info version injection
