@@ -11,8 +11,8 @@ ipcMain.on("of", () => {
 exports.open = () => {
     const win = require("../utils/win")(
         {
-            width: 600,
-            height: 800
+            width: 850,
+            height: 900
         },
         "config"
     );
