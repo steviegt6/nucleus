@@ -8,6 +8,25 @@ ipcMain.on("of", () => {
     shell.openPath(require("../paths").getUserData() + "/settings.json");
 });
 
+ipcMain.on("winev", (e, c) => {
+    const window = BrowserWindow.fromWebContents(e.sender);
+
+    switch (c) {
+        case "close":
+            window.close();
+            break;
+
+        case "maximize":
+            if (window.isMaximized()) window.unmaximize();
+            else window.maximize();
+            break;
+
+        case "minimize":
+            window.minimize();
+            break;
+    }
+});
+
 exports.open = () => {
     const win = require("../utils/win")(
         {
@@ -45,24 +64,5 @@ exports.open = () => {
         settings.save();
         app.relaunch();
         app.exit();
-    });
-
-    ipcMain.on("winev", (e, c) => {
-        const window = BrowserWindow.fromWebContents(e.sender);
-
-        switch (c) {
-            case "close":
-                window.close();
-                break;
-
-            case "maximize":
-                if (window.isMaximized()) window.unmaximize();
-                else window.maximize();
-                break;
-
-            case "minimize":
-                window.minimize();
-                break;
-        }
     });
 };
