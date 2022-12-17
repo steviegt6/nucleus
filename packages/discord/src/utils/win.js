@@ -21,14 +21,6 @@ module.exports = (o, n) => {
     });
 
     const c = w.webContents;
-    c.once("dom-ready", () => {
-        if (oaConfig.themeSync !== false)
-            try {
-                const userData = JSON.parse(require("fs").readFileSync(require("path").join(require("../paths").getUserData(), "userDataCache.json"), "utf8"));
-                c.insertCSS(userData.nucleusCss);
-                c.insertCSS(userData.openasarSplashCSS);
-            } catch {}
-    });
 
     if (n === "config")
         c.on("new-window", (e, url) => {

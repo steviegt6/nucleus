@@ -30,7 +30,14 @@ const themesync = async () => {
     for (const sheet of document.styleSheets) for (const rule of sheet.cssRules) css += rule.cssText;
     const pastCss = cached["nucleusCss"];
     cached["nucleusCss"] = css;
-    modified |= css !== pastValue;
+    modified = modified || css !== pastCss;
+
+    const html = document.getElementsByTagName("html")[0];
+    let htmlClasses = "";
+    for (const clazz of html.classList) htmlClasses += `${clazz},`;
+    const passHtmlClasses = cached["nucleusHtmlClasses"];
+    cached["nucleusHtmlClasses"] = htmlClasses;
+    modified = modified || htmlClasses !== passHtmlClasses;
 
     if (modified) DiscordNative.userDataCache.cacheUserData(JSON.stringify(cached));
 };
@@ -84,3 +91,5 @@ setInterval(() => {
     } catch (e) {}
 }, 10000);
 themesync();
+
+// ipcMain.on("request-nucleus-theme-sync", () => themesync());

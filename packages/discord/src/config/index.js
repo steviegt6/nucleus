@@ -27,6 +27,12 @@ ipcMain.on("winev", (e, c) => {
     }
 });
 
+ipcMain.on("initialize-environment", (e) => {
+    if (oaConfig.themeSync === false) return;
+
+    e.sender.send("run-environment-initializer", JSON.parse(require("fs").readFileSync(require("path").join(require("../paths").getUserData(), "userDataCache.json"), "utf8")));
+});
+
 exports.open = () => {
     const win = require("../utils/win")(
         {
