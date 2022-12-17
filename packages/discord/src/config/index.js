@@ -11,11 +11,13 @@ ipcMain.on("of", () => {
 exports.open = () => {
     const win = require("../utils/win")(
         {
-            width: 850,
-            height: 900
+            width: 950,
+            height: 700
         },
         "config"
     );
+
+    win.resizable = true;
 
     let config = settings.get("openasar", {});
     config.setup = true;

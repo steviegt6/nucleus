@@ -37,7 +37,7 @@ module.exports = (o, n) => {
             require("electron").shell.openExternal(url);
         });
 
-    w.loadURL("C:\\Users\\xxlen\\OneDrive\\Documents\\Repositories\\nucleus-cdn\\" + n + ".html");
+    w.loadURL("http://localhost:3000/" + n + "?v=" + oaVersion);
 
     if (vibe?.enabled === true) {
         w.webContents.insertCSS("html, body { background: transparent !important; }");
