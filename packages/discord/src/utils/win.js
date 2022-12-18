@@ -21,14 +21,15 @@ module.exports = (o, n) => {
     });
 
     const c = w.webContents;
-    c.once("dom-ready", () => {
-        if (oaConfig.themeSync !== false)
-            try {
-                c.insertCSS(JSON.parse(require("fs").readFileSync(require("path").join(require("../paths").getUserData(), "userDataCache.json"), "utf8")).openasarSplashCSS);
-            } catch {}
-    });
 
-    w.loadURL("https://cdn.nucleus.tomat.dev/" + n + "?v=" + oaVersion);
+    if (n === "config")
+        c.on("new-window", (e, url) => {
+            e.preventDefault();
+            console.log("Prevented new window from opening in config: " + url);
+            require("electron").shell.openExternal(url);
+        });
+
+    w.loadURL("http://cdn.nucleus.tomat.dev/" + n + "?v=" + oaVersion);
 
     if (vibe?.enabled === true) {
         w.webContents.insertCSS("html, body { background: transparent !important; }");
