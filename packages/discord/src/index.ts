@@ -7,7 +7,7 @@ global.oaVersion = "nightly";
 
 log("Init", "nucleus", oaVersion);
 
-log("Copyright", nucleusConstants.LICENSE_TEXT);
+// log("Copyright", nucleusConstants.LICENSE_TEXT);
 
 if (process.resourcesPath.startsWith("/usr/lib/electron")) global.systemElectron = true; // Using system electron, flag for other places
 // @ts-ignore
