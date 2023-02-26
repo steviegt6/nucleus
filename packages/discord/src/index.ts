@@ -24,22 +24,6 @@ global.oaConfig = settings.get("openasar", {});
 import addonHandler from "./addons/addonHandler";
 addonHandler();
 
-try {
-    global.vibe = require("./vibe.node");
-    global.oaConfig.supportsAcrylic = true;
-} catch (e) {
-    // @ts-ignore
-    global.vibe = [];
-    global.oaConfig.supportsAcrylic = false;
-}
-
-if (global.oaConfig.supportsAcrylic !== true || process.platform !== "win32" || (global.oaConfig.acrylicWindow !== true && !process.argv?.includes?.("--acrylic-window"))) {
-    global.vibe.enabled = false;
-} else {
-    global.vibe.enabled = true;
-    vibe.setup(require("electron").app);
-}
-
 require("./cmdSwitches")();
 
 // Force u2QuickLoad (pre-"minified" ish)

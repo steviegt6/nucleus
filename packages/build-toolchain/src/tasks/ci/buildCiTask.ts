@@ -9,11 +9,7 @@ export default class BuildCITask implements Task {
         // Build the project.
         await execTask(new BuildTask());
 
-        // Build without vibe.
-        await execTask(new PackTask());
-
-        // Build with vibe.
-        process.argv.push("--include-vibe");
+        // Pack.
         await execTask(new PackTask());
     }
 }

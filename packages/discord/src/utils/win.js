@@ -1,14 +1,7 @@
 module.exports = (o, n) => {
-    const settings =
-        vibe?.enabled === true
-            ? {
-                  backgroundColor: "#00000000",
-                  show: n === "config"
-                  // menubar: false,
-              }
-            : {
-                  backgroundColor: "#2f3136"
-              };
+    const settings = {
+        backgroundColor: "#2f3136"
+    };
     const w = new (require("electron").BrowserWindow)({
         frame: false,
         resizable: false,
@@ -30,10 +23,5 @@ module.exports = (o, n) => {
         });
 
     w.loadURL("https://cdn.nucleus.tomat.dev/" + n + "?v=" + oaVersion);
-
-    if (vibe?.enabled === true) {
-        w.webContents.insertCSS("html, body { background: transparent !important; }");
-        vibe.applyEffect(w, "acrylic");
-    }
     return w;
 };

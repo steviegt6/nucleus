@@ -13,8 +13,7 @@ nucleus is a reimplementation of the bootstrapper used by Desktop distributions 
 nucleus aims to be a feature-rich OpenAsar fork, and includes:
 
 -   **:house: shelter injection**: comes packaged with the ability to inject [`uwu/shelter`](https://github.com/uwu/shelter);
--   **:memo: built-in settings file editing**: adds the ability to directly edit your `settings.json` file for one reason or another;
--   **:window: acrylic windowing**: (Windows-only) acrylic windows provided by [`pykeio/vibe`](https://github.com/pykeio/vibe) under [Apache 2.0](https://github.com/pykeio/vibe/blob/main/LICENSE).
+-   **:memo: built-in settings file editing**: adds the ability to directly edit your `settings.json` file for one reason or another.
 
 #### nucleus Roadmap
 

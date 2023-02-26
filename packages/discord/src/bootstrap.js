@@ -50,11 +50,6 @@ const startCore = () => {
             );
 
             if (oaConfig.js) bw.webContents.executeJavaScript(oaConfig.js);
-
-            if (vibe?.enabled === true) {
-                bw.setBackgroundColor("#00000000");
-                vibe.applyEffect(bw, "acrylic");
-            }
         });
     });
 

@@ -6,9 +6,6 @@ forked from OpenAsar (https://github.com/GooseMod/OpenAsar) (under MIT)
 Copyright (c) 2022 nucleus Developers and Contributors
 Copyright (c) 2022 GooseNest
 
-vibe (repository: https://github.com/pykeio/vibe) (under Apache 2.0)
-Copyright (c) 2022 pyke.io (https://github.com/pykeio/vibe)
-
 shelter (repository: https://github.com/uwu/shelter) (under CC 1.0 Universal)
 <no year or name provided>
 
