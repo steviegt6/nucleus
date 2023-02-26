@@ -36,13 +36,6 @@ jobs:
                   path: app.asar
                   retention-days: 1
 
-            - name: Upload app-acrylic artifact
-              uses: actions/upload-artifact@v2
-              with:
-                  name: built-asar-acrylic
-                  path: app-acrylic.asar
-                  retention-days: 1
-
     test-linux:
         name: Test Linux
 
@@ -148,19 +141,9 @@ jobs:
                   name: built-asar
                   path: artifact
 
-            - name: Retrieve acrylic artifact
-              uses: actions/download-artifact@v2
-              with:
-                  name: built-asar-acrylic
-                  path: artifact
-
             - name: Extract artifact
               run: |
                   cp artifact/app.asar .
-
-            - name: Extract acrylic artifact
-              run: |
-                  cp artifact/app-acrylic.asar .
 
             - name: GitHub Release
               run: |
@@ -173,7 +156,7 @@ jobs:
               env:
                   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
                   VERSION: "nightly"
-                  FILES: app.asar app-acrylic.asar
+                  FILES: app.asar
 
     # debug-linux:
     #   name: Debug Linux
