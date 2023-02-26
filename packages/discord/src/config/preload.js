@@ -17,15 +17,19 @@ ipcRenderer.on("run-environment-initializer", (e, userData) => {
     const html = document.getElementsByTagName("html")[0];
     cleanUpEnvironment(html);
 
-    function injectCss(css) {
+    function injectCss(css, id) {
+        // match /src: url\(\"\/assets\/(.*?)\.woff2\"\)/gm
+        css = css.replace(/src: url\("\/assets\/(.*?)\.woff2"\)/gm, 'src: url("https://discord.com/assets/$1.woff2")');
+
         const styleSheet = document.createElement("style");
         styleSheet.innerText = css;
+        if (id) styleSheet.id = id;
         document.head.appendChild(styleSheet);
         addedStyleSheets.push(styleSheet);
     }
 
     try {
-        injectCss(userData.nucleusCss);
+        injectCss(userData.nucleusCss, "nucleus-discord-styles");
         injectCss(userData.openasarSplashCSS);
 
         for (const clazz of userData.nucleusHtmlClasses.split(",")) if (clazz) html.classList.add(clazz);
