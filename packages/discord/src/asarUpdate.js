@@ -4,7 +4,7 @@ const { join } = require("path");
 
 const asarPath = join(require.main.filename, "..");
 
-const asarUrl = `https://github.com/steviegt6/nucleus/releases/download/${oaVersion.split("-")[0]}/${oaConfig.supportsAcrylic ? "app-acrylic" : "app"}.asar`;
+const asarUrl = "https://github.com/steviegt6/nucleus/releases/download/app.asar";
 
 // todo: have these https utils centralised?
 const redirs = (url) =>
