@@ -2,5 +2,6 @@
     "name": "build-toolchain",
     "description": "nucleus Build Toolchain",
     "private": true,
+    "license": "GPL-3.0-or-later",
     "main": "index.js"
 }
