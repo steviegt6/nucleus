@@ -2,13 +2,13 @@
     "name": "nucleus",
     "description": "Feature-rick fork of GooseMod/OpenAsar with additional features; reimplementation of Discord's desktop bootstrapper.",
     "scripts": {
-        "compile-toolchain": "tsc -p ./packages/build-toolchain/tsconfig.json",
-        "build": "node dist/build-toolchain/index.js build",
-        "pack": "node dist/build-toolchain/index.js pack",
-        "copy": "node dist/build-toolchain/index.js copy",
-        "run": "node dist/build-toolchain/index.js run",
-        "dev": "node dist/build-toolchain/index.js dev",
-        "build-ci": "node dist/build-toolchain/index.js build-ci"
+        "compile-toolchain": "tsc -p ./packages/build/tsconfig.json",
+        "build": "node dist/build/index.js build",
+        "pack": "node dist/build/index.js pack",
+        "copy": "node dist/build/index.js copy",
+        "run": "node dist/build/index.js run",
+        "dev": "node dist/build/index.js dev",
+        "build-ci": "node dist/build/index.js build-ci"
     },
     "devDependencies": {
         "@types/electron": "^1.6.10",

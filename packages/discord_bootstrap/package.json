@@ -1,0 +1,6 @@
+{
+    "name": "discord",
+    "description": "Unofficial Discord desktop bootstrapper",
+    "license": "GPL-3.0-or-later",
+    "private": "true"
+}
