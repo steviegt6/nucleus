@@ -1,4 +1,4 @@
-import { execSync } from "child_process";
+import logExecSync from "../utils/logExec";
 import Task from "./task";
 
 export default class BuildTask implements Task {
@@ -6,6 +6,6 @@ export default class BuildTask implements Task {
 
     async run(): Promise<void> {
         console.log("Building with tsc...");
-        execSync("tsc -p ./packages/discord/tsconfig.json");
+        logExecSync("tsc -p ./packages/bootstrapper/tsconfig.json");
     }
 }

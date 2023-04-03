@@ -1,8 +1,8 @@
 // Paths and some resolution logic taken from https://github.com/replugged-org/replugged/blob/main/injectors/
 
-import { execSync } from "child_process";
 import { existsSync, readdirSync } from "fs";
 import { join } from "path";
+import { execSync } from "child_process";
 
 // grep instances of LOGNAME in /etc/passwd, pipe output to cut, cut line by ":" and get the 6th field
 // example grep output: name:x:1000:1000:,,,:/home/name:/bin/bash

@@ -1,8 +1,7 @@
-import { execSync } from "child_process";
 import { copyFileSync } from "fs";
 import { join } from "path";
-import { getArgBool } from "../utils/parseArgs";
 import Task from "./task";
+import logExecSync from "../utils/logExec";
 
 export default class PackTask implements Task {
     name: string = "pack";
@@ -10,11 +9,11 @@ export default class PackTask implements Task {
     async run(): Promise<void> {
         console.log("Copying over files before packing into .asar...");
 
-        copyFile(join("packages", "discord", "package.json"), join("dist", "discord", "package.json"));
+        copyFile(join("packages", "bootstrapper", "package.json"), join("dist", "bootstrapper", "package.json"));
 
         const asarName = "app.asar";
         console.log("Packing into .asar: " + asarName);
-        execSync(`asar pack ${join("dist", "discord")} ${asarName}`);
+        logExecSync(`asar pack ${join("dist", "bootstrapper")} ${asarName}`);
     }
 }
 
