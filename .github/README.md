@@ -1,3 +1,6 @@
+> [!WARNING]
+> nucleus has been archived, please see [steviegt6/caesar](https://github.com/steviegt6/caesar).
+
 # nucleus ![Nightly Status](https://github.com/steviegt6/nucleus/actions/workflows/nightly.yml/badge.svg) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
 
 > Open-source reimplementation of Discord's Desktop app bootstraper (referred to by many as the `app.asar`).
